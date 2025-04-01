@@ -72,6 +72,47 @@
       background-color: rgba(255, 255, 255, 0.3);
       text-decoration: underline;
     }
+    .add-domain-form {
+      margin: 15px 0;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+    .add-domain-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      background-color: #333;
+      color: white;
+    }
+    .add-domain-form button {
+      width: 100%;
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .add-domain-form button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      display: none;
+    }
+    .success {
+      background-color: rgba(76, 175, 80, 0.2);
+      color: #4CAF50;
+    }
+    .error {
+      background-color: rgba(244, 67, 54, 0.2);
+      color: #f44336;
+    }
   </style>
 </head>
 <body>
@@ -83,6 +124,13 @@
     Bu firma, halkın değil, sarayın yanında saf tuttu.<br>
     Şimdi karar senin: Sessiz kalma, boykot et!<br>
     Güncel boykot listesi aşağıdadır:</p>
+  
+  <div class="add-domain-form">
+    <h3>Yeni Domain Ekle</h3>
+    <input type="text" id="newDomain" placeholder="Örnek: example.com">
+    <button id="addDomain">Ekle</button>
+    <div id="message" class="message"></div>
+  </div>
   
   <div class="company-list">
     <ul id="companies-list">

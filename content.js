@@ -1,5 +1,27 @@
 // Import domains list from shared file
 const domains = window.domainsList || [];
+let customDomains = [];
+
+// Storage'dan custom domainleri yükle
+chrome.storage.local.get(['customDomains'], function(result) {
+  if (result.customDomains) {
+    customDomains = result.customDomains;
+  }
+});
+
+// Custom domain listesi güncellendiğinde
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === 'updateCustomDomains') {
+    customDomains = request.customDomains;
+  }
+});
+
+// Function to check if domain is in custom list
+function isInCustomDomains(currentDomain) {
+  return customDomains.some(domain => 
+    currentDomain === domain || currentDomain.endsWith('.' + domain)
+  );
+}
 
 // Function to extract domain from URL
 function extractDomain(url) {
@@ -13,7 +35,7 @@ function extractDomain(url) {
   }
 }
 
-// Function to check if current domain is in the list
+// Function to detect companies
 function detectCompanies() {
   if (!document.body) {
     setTimeout(detectCompanies, 100);
@@ -23,7 +45,13 @@ function detectCompanies() {
   const currentDomain = window.location.hostname.toLowerCase().replace(/^www\./, '');
   const currentFullUrl = window.location.href.toLowerCase();
   
-  // Check if current domain matches any domain in the list
+  // Önce custom domainleri kontrol et
+  if (isInCustomDomains(currentDomain)) {
+    displayNotification('Boykot Listesindeki Site');
+    return;
+  }
+
+  // Sonra sabit listedeki domainleri kontrol et
   for (const companyObj of domains) {
     const companyName = Object.keys(companyObj)[0];
     const companyUrls = companyObj[companyName];
@@ -206,3 +234,75 @@ window.addEventListener('load', function() {
 
 // Initial detection attempt
 detectCompanies();
+
+// Sayfa yüklenmeden önce domain kontrolü yap
+const currentUrl = window.location.href;
+
+// domains.js'den gelen listeyi kontrol et
+if (window.domainsList) {
+  for (const company of window.domainsList) {
+    const companyName = Object.keys(company)[0];
+    const urls = company[companyName];
+    
+    // URL'lerden herhangi biri eşleşiyorsa sayfayı engelle
+    if (urls.some(url => {
+      // URL'den domain'i çıkar
+      const urlDomain = new URL(url).hostname;
+      // Mevcut URL'nin domain'i ile karşılaştır
+      return currentUrl.includes(urlDomain);
+    })) {
+      // Sayfayı engelle
+      document.documentElement.innerHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Erişim Engellendi</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              margin: 0;
+              background-color: #f5f5f5;
+            }
+            .container {
+              text-align: center;
+              padding: 20px;
+              background-color: white;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              max-width: 500px;
+            }
+            h1 {
+              color: #d32f2f;
+              margin-bottom: 20px;
+            }
+            p {
+              color: #333;
+              line-height: 1.6;
+            }
+            .logo {
+              width: 64px;
+              height: 64px;
+              margin-bottom: 20px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <img src="${chrome.runtime.getURL('images/icon128.png')}" alt="Boykot Logo" class="logo">
+            <h1>Erişim Engellendi</h1>
+            <p>Bu site (${companyName}), boykot listesinde yer almaktadır.</p>
+            <p>Bu firma, halkın değil, sarayın yanında saf tuttu.</p>
+            <p>Lütfen vicdanınıza kulak verin ve bu siteye erişmeyin.</p>
+          </div>
+        </body>
+        </html>
+      `;
+      break;
+    }
+  }
+}
