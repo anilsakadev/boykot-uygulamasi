@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="images/icon128.png" alt="Boykotyap Logo" width="128" height="128">
+  <img src="images/icon128.png" alt="Boykot Logo" width="128" height="128">
 </p>
 
-# Boykotyap – Chrome Eklentisi
+# Boykot – Chrome Eklentisi
 
 Türkiye’deki adaletsizliklere, baskıya ve hukuksuzluğa sessiz kalan şirketleri ifşa eder.  
 Ziyaret ettiğiniz web sitesinin boykot listesinde olup olmadığını anında öğrenin.  
@@ -12,7 +12,7 @@ Ziyaret ettiğiniz web sitesinin boykot listesinde olup olmadığını anında �
 
 ## 🚨 Ne Yapar?
 
-Boykotyap, belirlenen şirketlerin web sitelerine girdiğinizde ekranın üzerine uyarı ekranı yerleştirir.  
+Boykot, belirlenen şirketlerin web sitelerine girdiğinizde ekranın üzerine uyarı ekranı yerleştirir.  
 Bu uyarı, sizi bilgilendirir ve bilinçli bir dijital duruş sergilemenizi sağlar.
 
 > Örnek Uyarı:  
@@ -61,13 +61,13 @@ Bazı örnek markalar:
 
 ---
 
-## 🧭 Neden Boykotyap?
+## 🧭 Neden Boykot?
 
 24 Mart 2025’te CHP Genel Başkanı Özgür Özel, şu çağrıda bulundu:
 
 > **"Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et!"**
 
-Boykotyap bu çağrıdan yola çıkılarak geliştirilmiştir. Amacı bilinçli tüketicileri dijital ortamda da bilgilendirmektir.
+Boykot bu çağrıdan yola çıkılarak geliştirilmiştir. Amacı bilinçli tüketicileri dijital ortamda da bilgilendirmektir.
 
 ---
 
