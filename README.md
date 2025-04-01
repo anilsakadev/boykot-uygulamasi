@@ -4,7 +4,7 @@
 
 # Boykot – Chrome Eklentisi
 
-Türkiye’deki adaletsizliklere, baskıya ve hukuksuzluğa sessiz kalan şirketleri ifşa eder.  
+Türkiye'deki adaletsizliklere, baskıya ve hukuksuzluğa sessiz kalan şirketleri ifşa eder.  
 Ziyaret ettiğiniz web sitesinin boykot listesinde olup olmadığını anında öğrenin.  
 **Halktan kazanıp saraya çalışanlara geçit yok.**
 
@@ -16,7 +16,20 @@ Boykot, belirlenen şirketlerin web sitelerine girdiğinizde ekranın üzerine u
 Bu uyarı, sizi bilgilendirir ve bilinçli bir dijital duruş sergilemenizi sağlar.
 
 > Örnek Uyarı:  
-> “Bu firma Türkiye’deki adaletsizliklere göz yummuştur. Sessiz kalan, suça ortaktır. Vicdanınıza kulak verin.”
+> "Bu firma Türkiye'deki adaletsizliklere göz yummuştur. Sessiz kalan, suça ortaktır. Vicdanınıza kulak verin."
+
+## 🎯 Kişisel Boykot Listesi
+
+Eklenti panelinden kendi boykot listenizi oluşturabilirsiniz:
+- Sağ üst köşedeki eklenti ikonuna tıklayın
+- "Yeni Domain Ekle" bölümüne engellemek istediğiniz sitenin domain adresini girin (örn: example.com)
+- "Ekle" butonuna tıklayın
+
+Eklediğiniz domainler:
+- Kalıcı olarak saklanır
+- Tarayıcıyı kapatıp açsanız bile kaybolmaz
+- Sadece sizin tarayıcınızda görünür
+- İstediğiniz zaman yeni domainler ekleyebilirsiniz
 
 ---
 
@@ -63,7 +76,7 @@ Bazı örnek markalar:
 
 ## 🧭 Neden Boykot?
 
-24 Mart 2025’te CHP Genel Başkanı Özgür Özel, şu çağrıda bulundu:
+24 Mart 2025'te CHP Genel Başkanı Özgür Özel, şu çağrıda bulundu:
 
 > **"Parayı bizden kazanıp, sadece saraya hizmet yok. Boykot et!"**
 
@@ -75,8 +88,8 @@ Boykot bu çağrıdan yola çıkılarak geliştirilmiştir. Amacı bilinçli tü
 
 1. Bu repoyu indirin veya klonlayın.
 2. Chrome'da `chrome://extensions/` sayfasını açın.
-3. Sağ üstten “Geliştirici Modu”nu aktif edin.
-4. “Paketlenmemiş öğe yükle”ye tıklayın.
+3. Sağ üstten "Geliştirici Modu"nu aktif edin.
+4. "Paketlenmemiş öğe yükle"ye tıklayın.
 5. İndirdiğiniz klasörü seçin.
 
 ---
