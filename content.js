@@ -60,12 +60,12 @@ function detectCompanies() {
       const lowerUrl = url.toLowerCase();
       
       // For social media URLs, we need to check if the current URL contains the path from our list
-      if (lowerUrl.includes('x.com/') || lowerUrl.includes('twitter.com/') || lowerUrl.includes('instagram.com/')) {
-        // Extract the username part for comparison
-        const urlParts = lowerUrl.split('/');
-        const username = urlParts[urlParts.length - 1]; // Get the last part which should be the username
-        
-        if (username && username.length > 0 && currentFullUrl.includes('/' + username)) {
+      if (
+        lowerUrl.includes('x.com/') ||
+        lowerUrl.includes('twitter.com/') ||
+        lowerUrl.includes('instagram.com/')
+      ) {
+        if (currentFullUrl === lowerUrl) {
           displayNotification(companyName);
           return;
         }
@@ -236,22 +236,14 @@ window.addEventListener('load', function() {
 detectCompanies();
 
 // Sayfa yüklenmeden önce domain kontrolü yap
-const currentUrl = window.location.href;
+const currentUrl = window.location.href.toLowerCase();
 
-// domains.js'den gelen listeyi kontrol et
 if (window.domainsList) {
   for (const company of window.domainsList) {
     const companyName = Object.keys(company)[0];
     const urls = company[companyName];
-    
-    // URL'lerden herhangi biri eşleşiyorsa sayfayı engelle
-    if (urls.some(url => {
-      // URL'den domain'i çıkar
-      const urlDomain = new URL(url).hostname;
-      // Mevcut URL'nin domain'i ile karşılaştır
-      return currentUrl.includes(urlDomain);
-    })) {
-      // Sayfayı engelle
+
+    if (urls.some(url => currentUrl === url.toLowerCase())) {
       document.documentElement.innerHTML = `
         <!DOCTYPE html>
         <html>
