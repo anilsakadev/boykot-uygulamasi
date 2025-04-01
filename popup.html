@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Boykot</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      background-color: #404040;
+      color: white;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .logo {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+    .company-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #404040;
+      padding: 10px;
+      margin-bottom: 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    .status {
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    .company-name {
+      font-weight: bold;
+    }
+    .company-urls {
+      margin-left: 10px;
+      font-size: 0.9em;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      border-radius: 3px;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: background-color 0.3s;
+    }
+    .footer a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="images/icon48.png" alt="Boykotyap Logo" class="logo">
+    <h1>Boykotyap</h1>
+  </div>
+  <p>Bizden kazanıp, adalete sırtını dönenlere geçit yok!<br>
+    Bu firma, halkın değil, sarayın yanında saf tuttu.<br>
+    Şimdi karar senin: Sessiz kalma, boykot et!<br>
+    Güncel boykot listesi aşağıdadır:</p>
+  
+  <div class="company-list">
+    <ul id="companies-list">
+      <!-- List will be dynamically populated by JavaScript -->
+    </ul>
+  </div>
+  
+  <div class="status">
+    Eklenti aktif ve mevcut sayfayı izliyor.
+  </div>
+  
+  <div class="footer">
+    <p>Boykot listesine katkıda bulunmak için</p>
+    <a href="mailto:acaglarsaka@gmail.com" style="margin-top:3px;">acaglarsaka@gmail.com</a>
+  </div>
+
+  <!-- Import the shared domains list first -->
+  <script src="domains.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
